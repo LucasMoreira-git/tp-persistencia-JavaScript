@@ -1,0 +1,142 @@
+:root {
+  --color-primario: #ff6347;
+  --color-fondo: #f0f0f0;
+  --color-texto: #333;
+  --color-blanco: #fff;
+  --color-borde: #ddd;
+  --color-focus: #ff4500;
+  --sombra-tarjeta: 0 0.35rem 1rem rgb(0 0 0 / 0.12);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-block-size: 100vh;
+  margin: 0;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.login-layout {
+  display: grid;
+  min-block-size: 100vh;
+  place-items: center;
+  padding: 1rem;
+}
+
+.login-card {
+  inline-size: min(100%, 26rem);
+  margin: 0;
+  padding: 2rem 1.5rem;
+  border: 1px solid var(--color-borde);
+  border-radius: 0.5rem;
+  background-color: var(--color-blanco);
+  box-shadow: var(--sombra-tarjeta);
+}
+
+.login-header {
+  margin-block-end: 1.75rem;
+  text-align: center;
+}
+
+.login-header h1 {
+  margin: 0;
+  color: var(--color-primario);
+  font-size: clamp(1.75rem, 7vw, 2.25rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.login-header p {
+  margin: 0.15rem 0 0;
+  font-size: 1rem;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+input {
+  inline-size: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--color-borde);
+  border-radius: 0.25rem;
+  color: var(--color-texto);
+  font: inherit;
+}
+
+input::placeholder {
+  color: #777;
+}
+
+input:focus {
+  border-color: var(--color-focus);
+  outline: 0.15rem solid rgb(255 69 0 / 0.2);
+}
+
+button {
+  margin-block-start: 0.1rem;
+  padding: 0.75rem 1rem;
+  border: 0;
+  border-radius: 0.25rem;
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+button:hover {
+  background-color: var(--color-focus);
+  transform: translateY(-0.1rem);
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 0.15rem solid var(--color-focus);
+  outline-offset: 0.15rem;
+}
+
+.register-link {
+  margin: 1.5rem 0 0;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+a {
+  color: var(--color-primario);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-focus);
+  text-decoration: underline;
+}
+
+@media (min-width: 48rem) {
+  .login-card {
+    padding: 2.25rem;
+  }
+}

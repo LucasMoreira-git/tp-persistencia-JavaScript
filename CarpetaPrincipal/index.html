@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            font-family: cursive, sans-serif;
+            margin: 0;
+            padding: 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Store</title>
+</head>
+<body>
+<header>
+    <h1>Food Store</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Mis Pedidos</li>
+            <li><a href="index.html">Carrito</a></li>
+            <li><a href="login.html">Panel Admin</a></li>
+        </ul>
+    </nav>
+</header>
+<aside>
+        <h2>Comida</h2>
+    <ul id="lista-categorias"></ul>
+</aside>
+<main>
+<form>
+<label for="busqueda">Buscar productos:</label>
+<input type="text" id="busqueda" name="busqueda" placeholder="Buscar...">
+<button type="submit">Buscar</button>
+</form>
+    <h2>Bienvenido a la tienda de alimentos</h2>
+        <p>
+        Explora nuestros productos y realiza tus pedidos fácilmente, precaucion los precios no son tan baratos.
+        </p>
+        <section id="contenedor-productos"></section>
+
+</main>
+<footer>
+    <p>&copy; 2024 Food Store. Todos los derechos reservados.</p>
+    <p>Contacto: 261-247-6185</p>
+</footer>
+
+<script src="./js/data.js"></script>
+<script src="./js/main.js"></script>
+
+</body>
+</html>
+
+
