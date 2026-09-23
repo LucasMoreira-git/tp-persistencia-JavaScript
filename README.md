@@ -1,114 +1,114 @@
-# Food Store - Pagina de Login
+# Food Store - Aplicación Web Dinámica
 
-Pagina de inicio de sesion desarrollada con HTML y CSS como trabajo practico integrador. El objetivo es aplicar conceptos fundamentales de CSS para construir un formulario profesional, accesible y adaptable a distintos dispositivos.
+## Descripción del proyecto
 
-## Vista previa
+Food Store es un catalogo web de alimentos desarrollado con HTML5, CSS3 y JavaScript vanilla. El proyecto transforma una maqueta estatica en una aplicacion dinamica: las categorias y los productos ya no se escriben manualmente en el HTML, sino que se almacenan en un catalogo local y se renderizan automaticamente en el navegador.
 
-La interfaz incluye:
-
-- Tarjeta de login centrada en la pagina.
-- Titulo principal `FOOD STORE`.
-- Campo de email.
-- Campo de contrasena.
-- Boton de ingreso con estado hover.
-- Enlace para registrarse.
-- Adaptacion para celulares, tablets y monitores.
+La aplicacion incluye una vista principal de productos, un menu de categorias, botones de compra con interaccion, una pantalla de inicio de sesion y un panel de administracion. La separacion entre datos, estructura, estilos y logica facilita el mantenimiento y permite reemplazar posteriormente el catalogo local por una API.
 
 ## Tecnologias utilizadas
 
-- HTML5
-- CSS3
-- CSS Grid
-- Flexbox
-- Variables CSS
-- Media Queries
-
-No se utilizan frameworks ni dependencias externas.
+- HTML5 y etiquetas semanticas.
+- CSS3, variables CSS, Flexbox, CSS Grid y media queries.
+- JavaScript vanilla, sin frameworks ni dependencias externas.
+- Manipulacion del DOM y eventos del navegador.
+- Git y GitHub para el control de versiones y la publicacion del proyecto.
 
 ## Estructura del proyecto
 
 ```text
-CarpetaPrincipal/
-├── login.html
-├── login.css
-└── README.md
+.
+├── README.md
+├── CarpetaPrincipal/
+│   ├── index.html       # Catalogo principal
+│   ├── login.html       # Pantalla de inicio de sesion
+│   └── admin.html       # Panel de administracion
+├── CSS/
+│   ├── login.css        # Estilos de la pantalla de login
+│   └── admin.css        # Estilos del panel administrativo
+├── JS/
+│   ├── data.js          # Categorias y productos del catalogo local
+│   └── main.js          # Renderizado e interaccion del catalogo
+└── img/                 # Imagenes locales del proyecto, si se agregan
 ```
 
-## Como ejecutar el proyecto
+## Módulos aprendidos y aplicados en la materia
+
+### Módulo 1: Comprensión del lenguaje y su entorno
+
+El proyecto utiliza JavaScript como lenguaje principal para agregar comportamiento a la pagina web. Se aplica separacion de responsabilidades:
+
+- HTML define la estructura y los contenedores de la interfaz.
+- CSS define la presentacion visual y la adaptacion responsive.
+- JavaScript administra los datos, genera contenido y responde a las acciones del usuario.
+
+### Módulo 2: Manejo de datos y estructuras
+
+Se utilizan variables declaradas con `const` y `let` segun corresponda, junto con tipos de datos primarios como strings, numeros y valores booleanos.
+
+El archivo `data.js` simula una base de datos local mediante:
+
+- Un array de objetos llamado `productos`, donde cada producto contiene `id`, `nombre`, `descripcion`, `precio`, `imagen` y `categoria`.
+- Un array de cadenas llamado `categorias`, que almacena los nombres de las categorias disponibles.
+
+Esta organizacion permite modificar la informacion del catalogo sin cambiar la estructura de `index.html`.
+
+### Módulo 3: Control de flujo, funciones y modularidad
+
+La logica se organiza en funciones flecha constantes:
+
+- `cargarCategorias` recorre las categorias y crea los enlaces del menu lateral.
+- `cargarProductos` recorre el catalogo y genera las tarjetas de productos.
+
+Tambien se aplican iteradores de arrays como `forEach` para procesar cada elemento y `find` para localizar el producto asociado al boton seleccionado. Los scripts se vinculan al HTML mediante etiquetas `<script>` ubicadas al final del `body`, lo que permite que los elementos del DOM ya esten disponibles al ejecutar la logica.
+
+### Módulo 4: Interacción con el DOM y Eventos
+
+La aplicacion selecciona los contenedores HTML con `document.getElementById()`:
+
+- `lista-categorias` recibe los enlaces de las categorias.
+- `contenedor-productos` recibe los articulos generados dinamicamente.
+
+Cada tarjeta se construye mediante Template Strings usando comillas invertidas (`` ` ``), lo que permite insertar los valores de cada producto dentro de una estructura HTML. Luego, el contenido se inyecta con `.innerHTML`.
+
+Los botones `Agregar` se conectan mediante `addEventListener`. Al hacer clic, se identifica el producto seleccionado y se muestra un `alert` con su nombre.
+
+### Módulo 5: Persistencia y asincronía (nota conceptual)
+
+Durante la materia se comprendieron los conceptos de asincronia, incluyendo `fetch`, `async` y `await`, y los mecanismos de almacenamiento del navegador, como `localStorage` y `sessionStorage`.
+
+Sin embargo, este trabajo practico utiliza una simulacion de base de datos estatica local en `data.js`, tal como solicita la consigna. Por ese motivo, no se implementan llamadas a una API externa ni persistencia de datos en el navegador. La estructura queda preparada para incorporar esas funcionalidades en una etapa posterior.
+
+### Módulo 6: Pensamiento crítico y proyecto integrador
+
+El proyecto transforma una maqueta estatica en un catalogo automatizado. Esta mejora reduce la duplicacion de HTML, facilita la actualizacion de productos y categorias, y demuestra como JavaScript puede actuar como intermediario entre los datos y la interfaz visual.
+
+## Cómo ejecutar el proyecto
 
 1. Clonar el repositorio:
 
    ```bash
-   git clone https://github.com/LucasMoreira-git/tp-css-html5.git
+   git clone URL_DEL_REPOSITORIO
    ```
 
 2. Entrar en la carpeta del proyecto:
 
    ```bash
-   cd CarpetaPrincipal
+   cd Practica-JavaScript
    ```
 
-3. Abrir `login.html` en un navegador web.
+3. Abrir la carpeta del proyecto en Visual Studio Code.
 
-Tambien se puede utilizar la extension Live Server de Visual Studio Code para visualizar los cambios en tiempo real.
+4. Instalar la extension **Live Server** si aun no esta instalada.
 
-## Modulos aprendidos y aplicados
+5. Hacer clic derecho sobre `CarpetaPrincipal/index.html` y seleccionar **Open with Live Server**.
 
-### Modulo 1: Fundamentos de CSS
+6. Navegar desde el catalogo hacia `login.html` o el panel administrativo usando los enlaces de la interfaz.
 
-- El archivo `login.css` se vincula al documento HTML mediante la etiqueta `<link>`.
-- Se utiliza una organizacion separada entre estructura y presentacion.
-- Los selectores se aplican de forma especifica a elementos y clases como `.login-card`, `.login-form`, `.form-field`, `input` y `button`.
-- La cascada y la especificidad se mantienen simples para facilitar el mantenimiento.
-- La herencia permite compartir propiedades como color, fuente y altura de linea desde `body`.
-- Las clases describen el proposito de cada componente y evitan nombres genericos.
+Tambien es posible abrir `CarpetaPrincipal/index.html` directamente en un navegador, aunque se recomienda utilizar un servidor local para trabajar con rutas y recursos de forma consistente.
 
-### Modulo 2: Modelo de caja y estilos visuales
+## Objetivo del proyecto
 
-- Se aplica `box-sizing: border-box` a todos los elementos para que el ancho incluya el padding y el borde.
-- La tarjeta utiliza `margin`, `padding`, `border`, `border-radius` y `box-shadow`.
-- Los campos tienen ancho completo, padding, borde y esquinas redondeadas.
-- Se utilizan colores de fondo, texto, borde y botones mediante variables CSS.
-- El texto utiliza `line-height`, `letter-spacing`, `text-align` y `text-transform` para mejorar la legibilidad.
-
-### Modulo 3: Posicionamiento y sistemas de layout
-
-- CSS Grid se utiliza en `.login-layout` para centrar la tarjeta vertical y horizontalmente.
-- Flexbox se utiliza en `.login-form` para organizar los campos y el boton en una columna.
-- `gap` controla la separacion entre elementos sin depender de margenes acumulativos.
-- El layout separa la estructura general de la organizacion interna del formulario.
-- `:focus-visible` y `:hover` aportan estados claros para la interaccion del usuario.
-
-### Modulo 4: Mobile First y responsive design
-
-- El estilo base esta pensado primero para pantallas pequenas.
-- Se utilizan unidades relativas como `rem`, `%`, `min()` y `vh` cuando corresponde al comportamiento del layout.
-- La tarjeta utiliza `inline-size: min(100%, 26rem)` para evitar desbordamientos.
-- La regla `@media (min-width: 48rem)` ajusta el espaciado en pantallas mas grandes.
-- El meta viewport permite que la pagina se adapte correctamente en dispositivos moviles.
-- Se comprobo el comportamiento en una pantalla movil sin overflow horizontal.
-
-## Accesibilidad y buenas practicas
-
-- El documento declara correctamente el idioma con `lang="es"`.
-- Se incluye `meta charset` y `meta viewport`.
-- Cada campo tiene un `label` asociado mediante los atributos `for` e `id`.
-- Los inputs utilizan tipos apropiados: `email` y `password`.
-- Los campos son obligatorios mediante `required`.
-- La contrasena solicita un minimo de ocho caracteres.
-- Se agregan atributos `autocomplete` para mejorar la experiencia de usuario.
-- Los estados de foco tienen un indicador visual visible.
-- La estructura utiliza elementos semanticos como `main`, `section`, `header`, `form` y `button`.
-
-## Objetivos alcanzados
-
-- Maquetar un formulario de login completo con HTML y CSS.
-- Aplicar correctamente el modelo de caja.
-- Centrar componentes mediante CSS Grid.
-- Organizar elementos internos mediante Flexbox.
-- Mantener colores consistentes con variables CSS.
-- Aplicar pseudoclases para mejorar la interactividad.
-- Crear una interfaz responsive con enfoque Mobile First.
-- Separar la estructura HTML de los estilos CSS siguiendo buenas practicas.
+El objetivo es aplicar arrays, objetos, funciones, iteradores, Template Strings, manipulacion del DOM y eventos para construir una aplicacion web mantenible. El resultado deja separada la informacion del catalogo respecto de la vista y prepara la logica para futuras mejoras, como filtros, carrito de compras, persistencia local o consumo de una API.
 
 
